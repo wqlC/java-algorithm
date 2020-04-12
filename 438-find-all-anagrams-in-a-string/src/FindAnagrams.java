@@ -47,6 +47,44 @@ public class FindAnagrams {
         return list;
     }
 
+    public List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> list = new ArrayList<>();
+        if(s==null||s.length() == 0) return list;
+        int left = 0;
+        int right = 0;
+        int[] needs = new int[26];
+        int[] windows = new int[26];
+        int total = p.length();
+        for(char ch: p.toCharArray()){
+            needs[ch-'a']++;
+        }
+        while(right<s.length()){
+            char chr = s.charAt(right);
+            if(needs[chr-'a']>0){
+                windows[chr-'a']++;
+                if(windows[chr-'a']<=needs[chr-'a']){
+                    total--;
+                }
+            }
+            while(total == 0){
+                if(right-left+1 == p.length()){
+                    list.add(left);
+                }
+                char chl = s.charAt(left);
+                if(needs[chl-'a']>0){
+                    windows[chl-'a']--;
+                    if(windows[chl-'a']<needs[chl-'a']){
+                        total++;
+                    }
+                }
+                left++;
+            }
+            right++;
+        }
+        return list;
+    }
+
+
     public static void main(String[] args) {
         String s = "cbaebabacd";
         String p = "abc";
