@@ -14,8 +14,8 @@ class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         l1 = reverseList(l1);
         l2 = reverseList(l2);
-        ListNode head = reverseList(addTwoNumbersI(l1, l2));
-        return head;
+
+        return reverseList(addTwoNumbersI(l1, l2));
     }
 
     private ListNode reverseList(ListNode head) {

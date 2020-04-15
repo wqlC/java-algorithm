@@ -24,7 +24,7 @@ class Solution {
                 remove = true;
                 nextNode = nextNode.next;
                 curNode.next = nextNode;
-            }else if(remove == true){
+            }else if(remove){
                 curNode = curNode.next;
                 nextNode = nextNode.next;
                 prevNode.next = curNode;
@@ -36,7 +36,7 @@ class Solution {
                 prevNode = prevNode.next;
             }
         }
-        if(remove == true){
+        if(remove){
             prevNode.next = null;
         }
         return dummyHead.next;
