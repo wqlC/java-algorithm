@@ -25,6 +25,7 @@ class Solution {
 
         return new ArrayList<>(result);
     }
+
     // 双指针
     public List<List<Integer>> threeSum2(int[] nums) {
 
